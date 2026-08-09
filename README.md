@@ -1,4 +1,4 @@
-# What Can My Agent Do?
+# What Can My Pay box Agent Do?
 
 An unofficial, community-made visual guide to what AI agents can currently do
 with [PayBox by MoonPay](https://paybox.sh). Static site, no backend, no
