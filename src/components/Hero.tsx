@@ -13,7 +13,21 @@ interface HeroProps {
   onQueryChange: (q: string) => void;
 }
 
+function goToResults() {
+  document.getElementById("explore")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export default function Hero({ query, onQueryChange }: HeroProps) {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    goToResults();
+  };
+
+  const handleChipClick = (ex: string) => {
+    onQueryChange(ex.replace(/^Can my agent |\?$/g, ""));
+    goToResults();
+  };
+
   return (
     <section id="top" className="relative overflow-hidden">
       <div
@@ -37,34 +51,41 @@ export default function Hero({ query, onQueryChange }: HeroProps) {
           Your AI can do more than answer questions. Explore the things an agent can pay for, buy, book, automate, and manage with PayBox.
         </p>
 
-        <div className="animate-rise mx-auto mt-9 max-w-xl" style={{ animationDelay: "0.15s" }}>
+        <form onSubmit={handleSubmit} className="animate-rise mx-auto mt-9 max-w-xl" style={{ animationDelay: "0.15s" }}>
           <label htmlFor="capability-search" className="sr-only">
             What do you want your agent to do?
           </label>
-          <div className="glass flex items-center gap-3 rounded-2xl px-4 py-3.5 shadow-xl shadow-black/20 transition-colors focus-within:border-violet-400/60">
-            <Search size={18} className="shrink-0 text-mist-600" />
+          <div className="glass flex items-center gap-2 rounded-2xl py-1.5 pl-4 pr-1.5 shadow-xl shadow-black/20 transition-colors focus-within:border-violet-400/60">
             <input
               id="capability-search"
               type="text"
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
               placeholder="What do you want your agent to do?"
-              className="w-full bg-transparent font-body text-[15px] text-mist-100 placeholder:text-mist-600 focus:outline-none"
+              className="w-full bg-transparent py-2 font-body text-[15px] text-mist-100 placeholder:text-mist-600 focus:outline-none"
             />
+            <button
+              type="submit"
+              aria-label="Search"
+              className="focus-ring flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-teal-500 text-ink-900 transition-transform hover:scale-105 active:scale-95"
+            >
+              <Search size={17} strokeWidth={2.5} />
+            </button>
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
             {EXAMPLES.map((ex) => (
               <button
                 key={ex}
-                onClick={() => onQueryChange(ex.replace(/^Can my agent |\?$/g, ""))}
+                type="button"
+                onClick={() => handleChipClick(ex)}
                 className="focus-ring rounded-full border border-ink-border bg-ink-800/60 px-3 py-1.5 text-xs text-mist-500 transition-colors hover:border-violet-400/50 hover:text-mist-100"
               >
                 {ex}
               </button>
             ))}
           </div>
-        </div>
+        </form>
       </div>
     </section>
   );
