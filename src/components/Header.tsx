@@ -26,12 +26,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink-border/70 bg-ink-900/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <a href="#top" className="flex items-center gap-2 focus-ring" aria-label="What Can My Agent Do? — home">
+        <a href="#top" className="flex items-center gap-2 focus-ring" aria-label="What Can My PayBox Agent Do? — home">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-teal-500">
             <LogoMark />
           </span>
-          <span className="font-display text-[15px] font-semibold tracking-tight text-mist-100">
-            What Can My Agent Do?
+          <span className="font-display text-[13px] font-semibold tracking-tight text-mist-100 sm:text-[15px]">
+            What Can My PayBox Agent Do?
           </span>
         </a>
 
