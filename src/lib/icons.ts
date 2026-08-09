@@ -1,0 +1,53 @@
+import {
+  Plane,
+  UtensilsCrossed,
+  ShoppingBag,
+  CreditCard,
+  Server,
+  Cpu,
+  Coins,
+  Repeat,
+  ArrowLeftRight,
+  Fuel,
+  TrendingUp,
+  CalendarClock,
+  PieChart,
+  Landmark,
+  LineChart,
+  SlidersHorizontal,
+  ToggleLeft,
+  Ban,
+  Vault,
+  KeyRound,
+  ShieldCheck,
+  Circle,
+  type LucideIcon,
+} from "lucide-react";
+
+export const iconMap: Record<string, LucideIcon> = {
+  Plane,
+  UtensilsCrossed,
+  ShoppingBag,
+  CreditCard,
+  Server,
+  Cpu,
+  Coins,
+  Repeat,
+  ArrowLeftRight,
+  Fuel,
+  TrendingUp,
+  CalendarClock,
+  PieChart,
+  Landmark,
+  LineChart,
+  SlidersHorizontal,
+  ToggleLeft,
+  Ban,
+  Vault,
+  KeyRound,
+  ShieldCheck,
+};
+
+export function getIcon(name: string): LucideIcon {
+  return iconMap[name] ?? Circle;
+}
