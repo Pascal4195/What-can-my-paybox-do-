@@ -19,7 +19,7 @@ export default function Footer() {
         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-teal-500">
           <LogoMark />
         </span>
-        <h3 className="font-display mt-3 text-sm font-semibold text-mist-100">What Can My Agent Do?</h3>
+        <h3 className="font-display mt-3 text-sm font-semibold text-mist-100">What Can My PayBox Agent Do?</h3>
         <p className="mt-2 text-xs text-mist-600">An unofficial community-made guide to PayBox and agentic payments.</p>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs">
