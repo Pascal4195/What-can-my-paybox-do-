@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-ink-950: #07090f;
+  --color-ink-900: #0a0d16;
+  --color-ink-850: #0e1220;
+  --color-ink-800: #131829;
+  --color-ink-700: #1a2036;
+  --color-ink-600: #262d47;
+  --color-ink-border: #232a42;
+
+  --color-mist-100: #f4f5fa;
+  --color-mist-300: #c7cbdd;
+  --color-mist-500: #9198b3;
+  --color-mist-600: #6b7290;
+  --color-mist-700: #4a5070;
+
+  --color-violet-400: #a498ff;
+  --color-violet-500: #8577f5;
+  --color-violet-600: #6c5ce0;
+
+  --color-teal-400: #6fe3c8;
+  --color-teal-500: #45cfae;
+  --color-teal-600: #2fae90;
+
+  --color-amber-400: #f2b866;
+
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  --animate-rise: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-ink-900);
+  color: var(--color-mist-100);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Tiled brand-mark texture: darker repetitions of the orbit motif, sitting
+   behind all content so it reads as texture, not decoration. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='70' cy='88' r='34' fill='%23180f30'/%3E%3Ccircle cx='110' cy='40' r='14' fill='%23180f30'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+::selection { background: var(--color-violet-500); color: white; }
+
+/* Scoped/glass surface — the visual language borrowed from PayBox's own
+   "vault" and "scoped access" framing, reinterpreted for this guide. */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid var(--color-ink-border);
+  backdrop-filter: blur(20px);
+}
+
+.glass-hover {
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-hover:hover {
+  border-color: rgba(133, 119, 245, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -12px rgba(133, 119, 245, 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff 20%, var(--color-violet-400) 60%, var(--color-teal-400) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grain {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-violet-400);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.thin-scroll::-webkit-scrollbar { width: 6px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: var(--color-ink-600); border-radius: 4px; }
