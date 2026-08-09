@@ -30,7 +30,7 @@ export default function Hero({ query, onQueryChange }: HeroProps) {
         </span>
 
         <h1 className="animate-rise font-display text-4xl font-semibold leading-[1.08] tracking-tight text-mist-100 sm:text-6xl" style={{ animationDelay: "0.05s" }}>
-          What Can My <span className="text-gradient">Agent</span> Do?
+          What Can My <span className="text-gradient">PayBox</span> Agent Do?
         </h1>
 
         <p className="animate-rise mx-auto mt-5 max-w-xl text-balance text-base text-mist-500 sm:text-lg" style={{ animationDelay: "0.1s" }}>
